@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── LIGHT MODE (default :root) ─── */
+:root {
+  --color-primary: 176 49 43;
+  --color-primary-container: 255 85 64;
+  --color-on-primary-container: 255 255 255;
+  --color-surface: 246 244 248;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 240 238 243;
+  --color-surface-container: 234 232 237;
+  --color-surface-container-high: 228 226 232;
+  --color-surface-container-highest: 222 220 227;
+  --color-surface-variant: 231 224 235;
+  --color-on-surface: 28 27 31;
+  --color-on-surface-variant: 74 69 78;
+  --color-secondary: 96 93 109;
+  --color-secondary-container: 230 224 244;
+  --color-on-secondary-container: 28 25 43;
+  --color-outline-variant: 202 196 208;
+}
+
+/* ─── DARK MODE ─── */
+.dark {
+  --color-primary: 255 180 168;
+  --color-primary-container: 255 85 64;
+  --color-on-primary-container: 255 255 255;
+  --color-surface: 19 19 23;
+  --color-surface-container-lowest: 14 14 18;
+  --color-surface-container-low: 27 27 31;
+  --color-surface-container: 31 31 35;
+  --color-surface-container-high: 42 41 46;
+  --color-surface-container-highest: 53 52 57;
+  --color-surface-variant: 42 41 46;
+  --color-on-surface: 229 225 231;
+  --color-on-surface-variant: 235 187 180;
+  --color-secondary: 199 197 211;
+  --color-secondary-container: 74 71 88;
+  --color-on-secondary-container: 230 224 244;
+  --color-outline-variant: 74 71 88;
+}
+
+@layer base {
+  body {
+    background-color: rgb(var(--color-surface));
+    color: rgb(var(--color-on-surface));
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  .glass-card {
+    background: rgba(var(--color-surface-container-highest), 0.6);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 85, 64, 0.2);
+    border-left: 1px solid rgba(255, 85, 64, 0.1);
+  }
+  .glass-panel {
+    background: rgba(var(--color-surface-container-highest), 0.6);
+    backdrop-filter: blur(12px);
+  }
+  .red-glow {
+    background: radial-gradient(circle at center, rgba(255, 85, 64, 0.15) 0%, transparent 70%);
+  }
+  .terminal-glow {
+    box-shadow: 0 0 20px rgba(255, 85, 64, 0.1);
+  }
+  .crt-overlay {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+  }
+  .section-highlight {
+    animation: section-flash 0.8s ease-out forwards;
+  }
+}
